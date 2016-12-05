@@ -1,19 +1,16 @@
 
+beginning_time = Time.now
 a = []
 total = []
 
-# def fileopen
-  file = 'triangle.txt'
-  if File.file?(file)
-    File.open(file) do |f|
-      f.each_line do |line|
-      a << line.split.map(&:to_i)
-      end
+file = 'triangle.txt'
+if File.file?(file)
+  File.open(file) do |f|
+    f.each_line do |line|
+    a << line.split.map(&:to_i)
     end
   end
-# end
-
-# fileopen
+end
 
 a.each_with_index do |x, xi|
   if x.count < 2
@@ -27,11 +24,5 @@ end
 
 sum = total.flatten!.inject(:+)
 puts "Total: #{total} with a sum of #{sum}"
-
-#
-# def calculate_total(total)
-# end
-# calculate_total
-# puts total.inject(0, :+)
-# total.transpose.map {|x| x.inject(:+)}
-# puts total
+end_time = Time.now
+puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
